@@ -65,14 +65,14 @@ public class SungJukV2 {
                 String.format("%.5f",mean));*/
 
         result = String.format(fmt, name, kor, eng, mat, sum, mean, grd);
-        System.out.println(result);
+
 
         //결과출력
 /*        System.out.println("이름: "+name+"\n"+"국어: "+kor+"\n"+"영어: "+eng+"\n"+"수학: "+mat+"\n-------------------\n"
                             +"총점: "+sum+"\n"+"평균: "+Math.round(mean*100)/100.0+"\n"+"학점: "+grd+"\n");*/
         // 문자열 연결 연산자(+)로 문장을 만드는 경우 성능저하 발생
 //        System.out.printf("이름:%s \n 국어:%d \n 영어:%d \n 수학:%d \n ------ \n 총점:%d \n 평균:%d \n학점:%c \n",name,kor,eng,mat,sum,mean,grd);
-
+        System.out.println(result);
     }
 }
 
