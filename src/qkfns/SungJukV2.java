@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 파일명 : SungJukV1
  * 작성일 : 2020.11.17
  *
- * 프로그램설명 : 성적처리프로그램 v1
+ * 프로그램설명 : 성적처리프로그램 v2
  * 이름,국어,영어,수학점수를 키보드로 입력받아
  * 총점,평균,학점을 계산하고 결과를 출력함.
  *
@@ -22,34 +22,37 @@ import java.util.Scanner;
 public class SungJukV2 {
     public static void main(String[] args) {
         //변수선언
-        String name = "지현";
-        Scanner scanner = new Scanner(System.in);
-        int input;
-        int kor = scanner.nextInt();
-        int eng = scanner.nextInt();
-        int mat = scanner.nextInt();
+        String name ;
+        int kor ;
+        int eng ;
+        int mat ;
         int sum = 0;
         double mean = 0.0;
         char grd = '가';
 
         //처리
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("이름을 입력하세요 : ");
+        name = scanner.nextLine();
+        System.out.print("국어 점수를 입력하세요 : ");
+        kor = scanner.nextInt();
+        System.out.print("영어 점수를 입력하세요 : ");
+        eng = scanner.nextInt();
+        System.out.print("수학 점수를 입력하세요 : ");
+        mat = scanner.nextInt();
         sum= kor + eng + mat;
         mean = (double)sum / 3;
-        input = (int)mean / 10;
-        switch (input){
-            case 10:
-            case 9:
-                grd = '수';
-            case 8:
-                grd = '우';
-            case 7:
-                grd = '미';
-            case 6:
-                grd = '양';
-            default:
-                grd = '가';
+        switch ((int)(mean/10)){
+            case 100:
+            case 9: grd = '수'; break;
+            case 8: grd = '우'; break;
+            case 7: grd = '미'; break;
+            case 6: grd = '양'; break;
+            default: grd = '가';
         }
-
+        // String.format(형식지정자, 변수들)
+        mean = Double.parseDouble(
+                String.format("%.1f",mean));
 
         //결과출력
         System.out.println("이름: "+name);
@@ -58,7 +61,8 @@ public class SungJukV2 {
         System.out.println("수학: "+mat);
         System.out.println("----------------");
         System.out.println("총점: "+sum);
-        System.out.printf("평균: %.2f \n",mean);
+        System.out.println("평균: "+mean);
+//        System.out.printf("평균: %.1f \n",mean);
         System.out.println("학점: "+grd);
     }
 }
