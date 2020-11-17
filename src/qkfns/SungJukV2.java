@@ -31,7 +31,14 @@ public class SungJukV2 {
         int sum = 0;
         double mean = 0.0;
         char grd = '가';
-
+        String fmt = "이름 : %d\n" +
+                "국어: %d\n" +
+                "영어: %d\n" +
+                "수학: %d\n" +
+                "총점: %d\n" +
+                "평균: %.2f\n" +
+                "학점: %c\n";
+        String result;
         //처리
         Scanner scanner = new Scanner(System.in);
         System.out.print("이름을 입력하세요 : ");
@@ -52,14 +59,19 @@ public class SungJukV2 {
             case 6: grd = '양'; break;
             default: grd = '가';
         }
+
         // String.format(형식지정자, 변수들)
 /*        mean = Double.parseDouble(
                 String.format("%.5f",mean));*/
 
+        result = String.format(fmt, name, kor, eng, mat, sum, mean, grd);
+        System.out.println(result);
+
         //결과출력
-        System.out.println("이름: "+name+"\n"+"국어: "+kor+"\n"+"영어: "+eng+"\n"+"수학: "+mat+"\n-------------------\n"
-                            +"총점: "+sum+"\n"+"평균: "+Math.round(mean*100)/100.0+"\n"+"학점: "+grd+"\n");
-//        System.out.printf("이름: %s \n 국어:%d \n 영어:%d \n 수학:%d\n ------ \n 총점:%d \n 평균:%.1f \n 학점:%c \n",name,kor,eng,mat,sum,mean,grd);
+/*        System.out.println("이름: "+name+"\n"+"국어: "+kor+"\n"+"영어: "+eng+"\n"+"수학: "+mat+"\n-------------------\n"
+                            +"총점: "+sum+"\n"+"평균: "+Math.round(mean*100)/100.0+"\n"+"학점: "+grd+"\n");*/
+        // 문자열 연결 연산자(+)로 문장을 만드는 경우 성능저하 발생
+//        System.out.printf("이름:%s \n 국어:%d \n 영어:%d \n 수학:%d \n ------ \n 총점:%d \n 평균:%d \n학점:%c \n",name,kor,eng,mat,sum,mean,grd);
 
     }
 }
