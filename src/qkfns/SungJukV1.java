@@ -29,11 +29,9 @@ public class SungJukV1 {
         sum= kor + eng + mat;
         mean = (double)sum / 3;
         grd =(mean >= 90) ? '수':
-                (mean >= 80) ? '우': (mean >= 80) ? '우':
-
-
-
-
+             (mean >= 80) ? '우':
+             (mean >= 70) ? '미':
+             (mean >= 60) ? '양':'가';
 
 
         //결과출력
