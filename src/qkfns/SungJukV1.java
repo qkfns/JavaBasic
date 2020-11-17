@@ -42,6 +42,7 @@ public class SungJukV1 {
         System.out.println("----------------");
         System.out.println("총점: "+sum);
         System.out.println("평균: "+mean);
+        System.out.println("학점: "+grd);
     }
 }
 
