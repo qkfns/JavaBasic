@@ -16,7 +16,9 @@ import java.util.Scanner;
  * 만점은 100점으로, 10점단위로 학점
  * 100~90, 89~80, 79~70, 69~60, 59~0
  * name, kor, eng , mat, sum, mean, grd
- *
+ * 단, 성적처리 결과 출력시 출력문을 하나만 사용
+ * 그리고, Math.round(값)을 이용해서
+ * 평균은 소수점 둘째자리까지 끊어서 출력함
  *
  */
 public class SungJukV2 {
@@ -51,19 +53,14 @@ public class SungJukV2 {
             default: grd = '가';
         }
         // String.format(형식지정자, 변수들)
-        mean = Double.parseDouble(
-                String.format("%.1f",mean));
+/*        mean = Double.parseDouble(
+                String.format("%.5f",mean));*/
 
         //결과출력
-        System.out.println("이름: "+name);
-        System.out.println("국어: "+kor);
-        System.out.println("영어: "+eng);
-        System.out.println("수학: "+mat);
-        System.out.println("----------------");
-        System.out.println("총점: "+sum);
-        System.out.println("평균: "+mean);
-//        System.out.printf("평균: %.1f \n",mean);
-        System.out.println("학점: "+grd);
+        System.out.println("이름: "+name+"\n"+"국어: "+kor+"\n"+"영어: "+eng+"\n"+"수학: "+mat+"\n-------------------\n"
+                            +"총점: "+sum+"\n"+"평균: "+Math.round(mean*100)/100.0+"\n"+"학점: "+grd+"\n");
+//        System.out.printf("이름: %s \n 국어:%d \n 영어:%d \n 수학:%d\n ------ \n 총점:%d \n 평균:%.1f \n 학점:%c \n",name,kor,eng,mat,sum,mean,grd);
+
     }
 }
 
