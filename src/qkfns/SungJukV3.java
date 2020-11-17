@@ -29,18 +29,10 @@ public class SungJukV3 {
         int sum[] = new int[3];
         double mean[] = new double[3];
         char grd[] = new char[3];
-        String fmt = "이름 : %d\n" +
-                "국어: %d\n" +
-                "영어: %d\n" +
-                "수학: %d\n" +
-                "총점: %d\n" +
-                "평균: %.2f\n" +
-                "학점: %c\n";
+        String fmt = "이름 : %s\n 국어: %d\n 영어: %d\n 수학: %d\n 총점: %d\n 평균: %.2f\n 학점: %c\n";
         //처리
 
-
         Scanner scanner = new Scanner(System.in);
-
         for(int i =0; i< 3; i++) {
             System.out.println((i+1) + "번째 학생 성적 입력중...");
             System.out.print("이름을 입력하세요 : ");
@@ -54,7 +46,7 @@ public class SungJukV3 {
             scanner.skip("\r\n|[\n\r]");
             // 수학 성적 입력시 같이 입력된 enter키가 다음 데이터 입력시 입력값으로 자동으로 전달됨.
             // 그러한 상황을 해결하기 위해 미리 엔터키를 제거하는 코드를 삽입한다. sc.skip("\r\n|[\n\r]");
-            // or
+            // or Integer.parseInt(sc.nextLine())이용해서 문자열을 숫자로 변환해서 입력하면된다.
         }
         for(int i = 0; i<3; i++) {
             sum[i] = kor[i] + eng[i] + mat[i];
@@ -70,11 +62,10 @@ public class SungJukV3 {
         }
         //결과출력
         for(int i =0; i<3; i++){
-            System.out.printf("이름:%s \n국어:%d\n영어:%d\n수학:%d\n총점:%d\n평균:%.2f\n학점:%c\n",name[i],kor[i],eng[i],mat[i],sum[i],mean[i],grd[i]);
+            System.out.printf(fmt,name[i],kor[i],eng[i],mat[i],sum[i],mean[i],grd[i]);
+            //System.out.printf("이름:%s \n국어:%d\n영어:%d\n수학:%d\n총점:%d\n평균:%.2f\n학점:%c\n",name[i],kor[i],eng[i],mat[i],sum[i],mean[i],grd[i]);
         }
-
     }
-
 }
 
 
