@@ -41,16 +41,16 @@ public class SungJukV4 {
 
     }
 
-    public static int computeNum(int a, int b) {
+    public static void computeNum(int a, int b) {
         System.out.printf("%d + %d = %d \n", a, b, (a + b));
         System.out.printf("%d - %d = %d \n", a, b, (a - b));
         System.out.printf("%d * %d = %d \n", a, b, (a * b));
         System.out.printf("%d / %d = %d \n", a, b, (a / b));
-        return a;
+
 
     }
 
-    public static int computeAllSum(int a, int b) {
+    public static void computeAllSum(int a, int b) {
         int min = a;
         int max = b;
         int sum = 0;
@@ -61,7 +61,7 @@ public class SungJukV4 {
             sum = sum + i;
         }
         System.out.printf(fmt, min, max, sum);
-        return sum;
+
     }
 }
 
