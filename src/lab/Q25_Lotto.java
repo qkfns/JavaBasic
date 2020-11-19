@@ -13,11 +13,17 @@ public class Q25_Lotto {
 
         //처리
         System.out.printf("복권 숫자 3가지를 입력하시오(1~45)");
-        for(i = 0 ; i <= 2 ; i++){
-            yourkey[i] = scanner.nextInt();
+        for(i = 0 ; i <= 2 ;){
+            if(yourkey[i]<0||yourkey[i]>45){
+                continue;
+            }else{
+                yourkey[i] = scanner.nextInt();
+                i++;
+            }
         }
+
         for(i = 0 ; i <=2 ; i++){
-            lottokey[i] = (int)Math.random()*45+1;
+            lottokey[i] = (int)(Math.random()*45)+1;
         }
 
         //결과출력
