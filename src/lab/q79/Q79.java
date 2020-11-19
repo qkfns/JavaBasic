@@ -1,4 +1,4 @@
-package q79;
+package lab.q79;
 
 public class Q79 {
     public static void main(String[] args) {
