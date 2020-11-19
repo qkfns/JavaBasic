@@ -1,7 +1,7 @@
 package lab;
 
 public class Department {
-    int departmentnumber;
+    String departmentnumber;
     String departmentname;
     String resume;
     String professor;

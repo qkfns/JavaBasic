@@ -25,7 +25,7 @@ public class EX01 {
         comp.subjectking = "504" ;
 
         Department prog = new Department();
-        prog.departmentnumber = 0205;
+        prog.departmentnumber = "0205";
         prog.departmentname = "프로그래밍";
         prog.professor = "자바 프로그래밍";
         prog.resume = "담당교수";
