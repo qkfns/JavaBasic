@@ -19,8 +19,8 @@ public class EX01 {
         kim.prof = "504";
 
         Department comp = new Department();
-        comp.dept ="컴퓨터공학";
-        comp.phonenumber ="123-4567-8901";
+        comp.dname ="컴퓨터공학";
+        comp.phone ="123-4567-8901";
         comp.office ="E동 2층";
         comp.chief = "504" ;
 
@@ -43,8 +43,8 @@ public class EX01 {
         System.out.println("교수: " + kim.prof);
         System.out.println();
 
-        System.out.println("학과명: " + comp.dept);
-        System.out.println("전화번호: " + comp.phonenumber);
+        System.out.println("학과명: " + comp.dname);
+        System.out.println("전화번호: " + comp.phone);
         System.out.println("사무실 위치: " + comp.office);
         System.out.println("학과장: " + comp.chief);
         System.out.println();

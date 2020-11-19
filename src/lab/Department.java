@@ -1,8 +1,8 @@
 package lab;
 
 public class Department {
-    String dept;
-    String phonenumber;
+    String dname;
+    String phone;
     String office;
     String chief;
 }
