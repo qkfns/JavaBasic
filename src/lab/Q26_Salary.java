@@ -19,6 +19,7 @@ public class Q26_Salary {
             case "예" :
                 if(yearpay>5999){
                     tax = yearpay * 35 / 100;
+                    break;
                 }else{
                     tax = yearpay * 15 / 100;
                     break;
@@ -26,9 +27,14 @@ public class Q26_Salary {
             case "아니오":
                 if(yearpay>2999){
                     tax = yearpay * 25 / 100;
+                    break;
                 }else{
                     tax = yearpay * 10 / 100;
+                    break;
                 }
+            default:
+                System.out.println("잘못입력하셨습니다.");
+                break;
         }
         /*if(Marriage="아니오" && yearpay>2999){
             tax = yearpay * 25 / 100;

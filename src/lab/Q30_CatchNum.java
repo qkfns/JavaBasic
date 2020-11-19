@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Q30_CatchNum {
     public static void main(String[] args) {
         int num1;
-        int num2 = (int)Math.random()*100+1;
+        int num2 = (int)(Math.random()*100)+1;
 
         Scanner scanner = new Scanner(System.in);
         while(true){
