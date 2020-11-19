@@ -13,8 +13,10 @@ public class Capsulation {
         Person2 p = new Person2();
         //p.name = "홍길동"; <----- 이렇게 쓰면 프라이빗 쓸때 안써짐
         p.setName("홍길동");
+        p.setJob("도사");
         //name이라는 멤버변수에 값을 대입하려면 setter 메서드를 이용함
         System.out.println(p.getName());
+        System.out.println(p.getJob());
 
         // 캡슐화를 적용하지 않은 코딩 (비추!!)
         // private 선언된 멤버변수는
@@ -43,9 +45,16 @@ class Person2 {
     public void setName(String name){
         this.name = name;
     }
-    public String getName(){
+    public String getName() {
         return name;
     }
+    public void setJob(String job){
+        this.job = job;
+    }
+    public String getJob(){
+        return job;
+    }
+
 }
 // 자바빈즈 Beans : 식별가능하고, 재사용성이 높은 소프트웨어를 만들기 위한 기본 규칙
 // 멤버변수는 반드시 private으로 선언
