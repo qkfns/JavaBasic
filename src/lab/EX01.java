@@ -11,29 +11,12 @@ public class EX01 {
 
         //객체에 저장된 값 출력력
         Student kim = new Student(20130050,"김태희","경기도 고양시",1985322,"컴퓨터","504");
-/*        kim.stdno = 201350050;
-        kim.name = "김태희";
-        kim.home = "경기도 고양시";
-        kim.birth = 19850322;
-        kim.dept= "컴퓨터";
-        kim.prof = "504";*/
 
-        Department comp = new Department();
-        comp.dname ="컴퓨터공학";
-        comp.phone ="123-4567-8901";
-        comp.office ="E동 2층";
-        comp.chief = "504" ;
+        Department comp = new Department("컴퓨터공학","123-4567","E동 2층","504");
 
-        Subject prog = new Subject();
-        prog.subjnum = "0205";
-        prog.subject = "프로그래밍";
-        prog.professor = "자바 프로그래밍";
-        prog.resume = "담당교수";
+        Subject prog = new Subject("0205","프로그래밍","자바 프로그래밍","담당교수");
 
-        Professor lee = new Professor();
-        lee.profnum = 301;
-        lee.name = "이순신";
-        lee.major = "프로그래밍";
+        Professor lee = new Professor(301,"이순신","프로그래밍");
 
         System.out.println("학번: " + kim.stdno);
         System.out.println("이름: " + kim.name);
