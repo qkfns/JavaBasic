@@ -1,7 +1,7 @@
 package lab;
 
 public class Professor {
-    int professornumber;
+    int profnum;
     String name;
     String major;
 }

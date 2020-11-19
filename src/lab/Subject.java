@@ -1,8 +1,9 @@
 package lab;
 
 public class Subject {
-    String subjectname;
-    String phonenumber;
-    String adress;
-    String subjectking;
+
+    String subjnum;
+    String subject;
+    String resume;
+    String professor;
 }
