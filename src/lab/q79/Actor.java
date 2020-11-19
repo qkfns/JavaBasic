@@ -1,20 +1,49 @@
 package lab.q79;
 
 public class Actor {
-    String aName;
-    String aBirth;
-    String aMovie;
-    String cast;
+    private String name;
+    private String birth;
+    private String[] joinmovie;
+    private String[] casting;
     public Actor(){
-        aName="김윤석";
-
-
+        name="김윤석";
     }
 
-    public Actor(String aName, String aBirth, String aMovie, String cast) {
-        this.aName = aName;
-        this.aBirth = aBirth;
-        this.aMovie = aMovie;
-        this.cast = cast;
+    public Actor(String name, String birth, String[] joinmovie, String[] casting) {
+        this.name = name;
+        this.birth = birth;
+        this.joinmovie = joinmovie;
+        this.casting = casting;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setBirth(String birth){
+        this.birth = birth;
+    }
+
+    public void setJoinmovie(String[] joinmovie) {
+        this.joinmovie = joinmovie;
+    }
+
+    public void setCasting(String[] casting) {
+        this.casting = casting;
+    }
+
+    public String getBirth(){
+        return birth;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String[] getJoinmovie() {
+        return joinmovie;
+    }
+
+    public String[] getCasting() {
+        return casting;
     }
 }
