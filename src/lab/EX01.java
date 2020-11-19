@@ -10,13 +10,13 @@ public class EX01 {
         //각 객체의 변수에 값 대입
 
         //객체에 저장된 값 출력력
-        Student kim = new Student();
-        kim.stdno = 201350050;
+        Student kim = new Student(20130050,"김태희","경기도 고양시",1985322,"컴퓨터","504");
+/*        kim.stdno = 201350050;
         kim.name = "김태희";
         kim.home = "경기도 고양시";
         kim.birth = 19850322;
         kim.dept= "컴퓨터";
-        kim.prof = "504";
+        kim.prof = "504";*/
 
         Department comp = new Department();
         comp.dname ="컴퓨터공학";
