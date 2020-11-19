@@ -2,7 +2,7 @@ package lab;
 
 public class Subject {
     String subjectname;
-    int phonenumber;
+    String phonenumber;
     String adress;
     String subjectking;
 }
