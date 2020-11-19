@@ -10,6 +10,7 @@ public class EX01 {
         //각 객체의 변수에 값 대입
 
         //객체에 저장된 값 출력력
+
         Student kim = new Student(20130050,"김태희","경기도 고양시",1985322,"컴퓨터","504");
 
         Department comp = new Department("컴퓨터공학","123-4567","E동 2층","504");
