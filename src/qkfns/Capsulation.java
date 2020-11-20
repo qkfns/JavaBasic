@@ -42,7 +42,9 @@ class Person2 {
     // public 반환값 getXxx() {
     //     return 멤버변수;
     //}
+
     public void setName(String name){
+
         this.name = name;
     }
     public String getName() {
