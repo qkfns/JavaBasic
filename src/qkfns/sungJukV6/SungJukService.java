@@ -47,7 +47,9 @@ public class SungJukService {
         String result = String.format(
                 fmt, sj.getName(),sj.getKor(),sj.getEng(),sj.getMat(),sj.getSum(), sj.getMean(),sj.getGrd());
         System.out.println(result);
-
+        //프린트에프문으로 한줄로 쓴것 위에 게 어려우면 이걸로 한번 짜보자.
+        /* System.out.printf("이름 : %s\n국어 : %d\n영어 : %d\n수학 : %d\n총점 : %d\n평균 : %.1f\n학점 : %c",sj.getName(),sj.getKor(),sj.getEng(),sj.getMat(),sj.getSum(), sj.getMean(),sj.getGrd());
+*/
 
     }
 }
