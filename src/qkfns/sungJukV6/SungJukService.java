@@ -36,7 +36,18 @@ public class SungJukService {
         } //switch
     } //computeSungJuk
 
-    /*public void printSungJuk()*/
+    /**
+     * 입력한 이름, 국어, 영어, 수학 점수와
+     * 계산된 총점,평균,학점등을 출력하는 메서드
+     */
+    public void printSungJuk(SungJukVO sj){
+        String fmt = "이름 : %s\n국어 : %d\n영어 : %d\n"
+                +"수학 : %d\n총점 : %d\n평균 : %.1f\n"
+                +"학점 : %c";
+        String result = String.format(
+                fmt, sj.getName(),sj.getKor(),sj.getEng(),sj.getMat(),sj.getSum(), sj.getMean(),sj.getGrd());
+        System.out.println(result);
 
 
+    }
 }

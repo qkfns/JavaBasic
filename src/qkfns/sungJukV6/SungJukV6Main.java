@@ -13,8 +13,8 @@ public class SungJukV6Main {
         // 참조자료형 변수 : call by reference
         sjsrv.computeSungJuk(sj);
 
-        System.out.println(sj.getEng());
-        System.out.println(sj.getSum());
+
+        sjsrv.printSungJuk(sj);
 
     }
 }
