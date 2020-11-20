@@ -29,7 +29,7 @@ public class ComputeTax {
     public int getIsMarried() {
         return isMarried;
     }
-
+    //세금계산
     public double manageTax() {
         double tax = 0;
 
@@ -43,4 +43,4 @@ public class ComputeTax {
         return tax;
     }
 
-}
+}//클래스

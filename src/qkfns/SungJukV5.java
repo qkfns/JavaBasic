@@ -3,7 +3,7 @@ package qkfns;
 import java.util.Scanner;
 
 /**
- * 파일명 : SungJukV4
+ * 파일명 : SungJukV5
  * 작성일 : 2020.11.18
  *
  * 프로그램설명 : 성적처리프로그램 v5
