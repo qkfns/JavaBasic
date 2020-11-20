@@ -1,7 +1,15 @@
-package qkfns;
+package qkfns.sungJukV6;
 
-
-public class SungJukV6 {
+/**
+ * 파일명 : SungJukV0
+ * 작성일 : 2020.11.20
+ *
+ * 프로그램 설명 : 성적처리프로그램 v5
+ * 이름,국어,영어,수학, 총점,평균,학점에
+ * 관한 변수를 정의한 클래스
+ */
+public class SungJukVO {
+    private  String name;
     private int kor;
     private int eng;
     private int mat;
@@ -9,16 +17,21 @@ public class SungJukV6 {
     private double mean;
     private char grd;
 
-    public SungJukV6(){
+    public SungJukVO(){
 
     }
-    public SungJukV6(int kor , int eng , int mat , int sum , double mean , char grd){
+    public SungJukVO(String name , int kor , int eng , int mat , int sum , double mean , char grd){
+        this.name = name;
         this.kor = kor;
         this.eng = eng;
         this.mat = mat;
         this.sum = sum;
         this.mean = mean;
         this.grd = grd;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setKor(int kor) {
@@ -43,6 +56,10 @@ public class SungJukV6 {
 
     public void setGrd(char grd) {
         this.grd = grd;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getKor() {
