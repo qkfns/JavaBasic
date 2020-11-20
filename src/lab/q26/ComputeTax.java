@@ -1,8 +1,8 @@
 package lab.q26;
 
 public class ComputeTax {
-    private static int salary;
-    private static int isMarried; // 예:0, 아니오:1
+    private int salary;
+    private int isMarried; // 예:0, 아니오:1
 
 
     public ComputeTax(){
@@ -30,7 +30,7 @@ public class ComputeTax {
         return isMarried;
     }
 
-    public static double manageTax() {
+    public double manageTax() {
         double tax = 0;
 
         if (isMarried == 0){
