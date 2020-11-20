@@ -6,5 +6,9 @@ public class ClassMakeRule {
         ComputeTax choi = new ComputeTax(3500,1);
 
         System.out.println(choi.manageTax());
+
+        choi = new ComputeTax(7800,0);
+
+        System.out.println(choi.manageTax());
     }
 }
