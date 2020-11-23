@@ -18,17 +18,17 @@ public class AbstractClass {
 }
 abstract class Animal2 {
     protected int weight;
-    abstract String cry();
+    protected abstract String cry();
 }
 class Cat2 extends Animal2 {
     @Override
-    String cry() {
+    protected String cry() {
         return "야옹~ 야옹~";
     }
 }
 class Dog2 extends Animal2{
     @Override
-    String cry() {
+    protected String cry() {
         return "멍~! 멍~!";
     }
 }
