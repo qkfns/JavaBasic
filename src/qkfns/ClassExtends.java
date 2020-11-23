@@ -17,17 +17,18 @@ package qkfns;
 public class ClassExtends {
     public static void main(String[] args) {
         Persons pss = new Persons();
-        Professor professor = new Professor();
-        System.out.println(professor.research());
+        Researcher rs = new Researcher();
+        Professor pfs = new Professor();
+        System.out.println(pfs.research());
         System.out.println(pss.eat());
         System.out.println(pss.walk());
+        System.out.println(rs.sleep());
     }
 }
 class Persons {
     private String name;
 
     public Persons(){
-
     }
     public Persons(String name) {
         this.name = name;
@@ -55,5 +56,5 @@ class Researcher extends Persons {
     public String research(){ return "연구하는 중....";}
 }
 class Professor extends Researcher{
-    public String teach(){ return "가르치는 중....";}
+    public String teach(){ return "강의하는 중....";}
 }
