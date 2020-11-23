@@ -11,8 +11,8 @@ public class SungJukV6Main {
         // 변수의 유효범위는 블록이라 하고 { } 로 표현
         // 기본자료형 변수 : call by value
         // 참조자료형 변수 : call by reference
-        sjsrv.computeSungJuk(sj);
 
+        sjsrv.computeSungJuk(sj);
 
         sjsrv.printSungJuk(sj);
 
