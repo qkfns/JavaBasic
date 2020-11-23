@@ -15,6 +15,8 @@ public class Overriding {
         System.out.println(dog.cry());
         Cow cow = new Cow();
         System.out.println(cow.cry());
+        Animal a = new Animal();
+        System.out.println(a.cry());
     }
 }
 class Animal {
