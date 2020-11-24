@@ -18,14 +18,14 @@ public class Strings {
         // => StringBuffer, StringBuilder 추천
 
         StringBuffer sb = new StringBuffer();
-        sb.append("Hello").append("World").append("Wow~");
+        sb.append("Hello ").append("World ").append("Wow~");
         System.out.println(sb);
 
         // 문자열 간 비교
         // 문자열 상수 풀이라는 개념 이해 필요 String constant pool
         // a 객체 생성 => "Hello"를 SCP 에 저장
         // b 객체 생성 => SCP에 이미 존재하므로 같은 값을 참조하도록 함
-        // c 객체 생성 => 새로운 위치에 "Hello"를 생성
+        // c 객체 생성 => SCP가 아닌 전혀 새로운 위치(heap메모리)에 "Hello"를 생성
 
         // 문자열 변수간 비교에서 == 연산자는 값을 비교하는 것이 아니라 값이 저장된 위치를 비교하는 것 (중요!)
         String a = "Hello";
