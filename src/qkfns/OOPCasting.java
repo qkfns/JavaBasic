@@ -16,15 +16,22 @@ public class OOPCasting {
         // Marine 객체는 자동으로 Unit 객체로 형변환
         // 이처럼 상속관계에 있는 클래스간의 객체 생성시 자식클래스타입의 객체를 부모클래스타입의 객체로
         // 선언하는 경우 업캐스팅이라 함
-        Firebat f2 = (Firebat)new Unit();
-        // Unit 객체를 Firebat 객체로 형변환하려면 명시적 형변환 필요
+
+        // Marine m3 = (Marine)new Unit();
+        // Unit 객체를 Marine 객체로 형변환하려면 명시적 형변환 필요
         // 이처럼 상속관계에 있는 클래스간의 객체 생성시 부모클래스타입의 객체를 자식클래스타입의 객체로
         // 선언하는 경우 다운캐스팅이라 함.
+        // 단, 컴파일시에는 오류가 나지 않지만 실행시 오류 발생!
+        Marine m3 = (Marine) m2;
+        // Unit 객체변수를 Marine 객체로 다운캐스팅
+        // 실행에는 아무 문제 없음
+        // => unit 변수는 Marine 객체를 Unit 객체로 만든 것
+        // 따라서, Marine 객체로의 형변환이 가능
         u1.attack();
         m1.attack();
         f1.attack();
         m2.attack();
-        f2.attack();
+        m3.attack();
     }
 
 }
