@@ -105,15 +105,22 @@ public class ArrayLists {
             if((games2.get(i).name.equals("스타크래프트"))){
                 System.out.println((i+1)+"번째에서 찾음");
             }
-        }
+        } // 강사님 해답과 같음
         for(GameInfo g : games2){
             if(g.name.equals("디아블로")) {
                 System.out.println("데이터 찾음"); break; }
-        }
-        if(g1.name.contains("디아블로")){
+        } // 강사님 해답과 같음
+        for(GameInfo g : games2){
+            if(g.name.contains("워크래프트")){
             System.out.println("데이터 찾음");
-        }
-        System.out.println(games2.indexOf("스타크래프트"));
+            }
+        }// 오답 깃허브 기록 비교
+        for(GameInfo g : games2){
+            if(g.name.indexOf("디아블로") >= 0){
+                System.out.println("데이터 찾음");
+            }
+        } // 깃허브 기록 비교
+
 
     }
 }
