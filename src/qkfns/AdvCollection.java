@@ -76,10 +76,11 @@ public class AdvCollection {
 
         Set<Integer> lottos = new HashSet<>();
 
-        for(int i = 0 ; lottos.size() != 6 ; i++) {
+        for(int i = 0 ; lottos.size() < 6 ; i++) {
             lottos.add((int)(Math.random() * 45)+1);
-            if(lottos.size() > 6 || lottos.size() < 0 )break;
+
         }
+
         System.out.println(lottos);
 
         // HashMap

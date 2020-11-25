@@ -26,6 +26,7 @@ public class ArrayLists {
 
         // 컬렉션 자료구조에 저장된 데이터를
         // 출력하려면 foreach 구문 사용
+        // for ( 카운터 변수 : 배열이름 )
         for(String name : names) {
             System.out.println(name);
         }
@@ -69,7 +70,7 @@ public class ArrayLists {
         } // 위치 기반 검색
 
         for (String g : games){
-            if (g.equals("에픽세븐")){
+            if (g.matches("에픽세븐")){
                 System.out.println("데이터 찾음");
                 break;
             }
@@ -77,7 +78,8 @@ public class ArrayLists {
         if (games.contains("원신")){
             System.out.println("데이터 찾음!!");
         }  // 값 기반 검색
-        System.out.println(games.indexOf("데드바이데이라이트")); // 위치 기반 검색
+        System.out.println(games.indexOf("데드바이데이라이트"));
+        // 위치 기반 검색
 
         // 게임정보에 대한 객체 생성
         GameInfo g1 = new GameInfo("디아블로",35000);
