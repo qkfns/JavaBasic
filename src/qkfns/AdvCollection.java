@@ -1,8 +1,6 @@
 package qkfns;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class AdvCollection {
     public static void main(String[] args) {
@@ -29,17 +27,84 @@ public class AdvCollection {
             System.out.println(names.get(i));
         }  // HashSet 에서는 get 사용불가  */
 
-        for (String n : names){
+        for (String n : names) {
             System.out.println(n);
         } // 2번 입력한 데이터는 하나로만 출력
 
         // 컬렉션 요소 순환(iterate)하기
         // 컬렉션 프레임워크에 저장된 각 요소들을
         // 읽어오는 방법을 표준화한 것
+        // Iterator는 OOP프로그래밍에서 배열이나
+        // 그와 유사한 자료구조의 내부 요소를
+        // 순회하는 객체를 의미
         Iterator<String> iter = names.iterator();
-        while(iter.hasNext()){
+
+        while (iter.hasNext()) {
             System.out.println(iter.next());
         }
-    }
 
+        // 데이터 수정 : set (사용불가)
+        // names.set(0, "수현");
+        // 따라서, 먼저 remove한 후 add로 처리
+        // 혜교를 수현으로 바꾸는 경우
+        names.remove("혜교");
+        names.add("수현");
+
+        // Hashset에 다양한 유형의 값을 추가해 봄
+        names.add("apple");
+        names.add("peach");
+        names.add("berry");
+
+        names.add("123");
+        names.add("789");
+        names.add("456");
+
+
+
+        for (String n : names) {
+            System.out.println(n);
+        } // 값들이 특이한 순서로 출력됨
+        // => 각 데이터의 고유 해쉬값에 의해 정렬되어 출력
+
+        // https://url.kr/IJ7jdR
+        // sha256 hash코드 생성기
+        // sha (secure hash algorithm)
+        // 256 : 256bit 길이의 코드생성
+
+        // HashMap
+        // 키와 값으로 저장하는 컬렉션 클래스
+        // Map인터페이스를 구현한 컬렉션 클래스
+        // 키와 값을 하나의 쌍으로 저장하는 방식을 사용
+        // 키는 실질적으로 값을 찾기 위한 방편으로 사용
+        // 요소의 저장순서는 유지되지않음
+        // 키는 중복 데이터를 저장할 수 없음
+        // 단, 값은 중복으로 저장할 수 있음
+        // 해시 알고리즘을 사용하기 때문에
+        // 검색속도가 매우 빠름
+
+        // 데이터 추가 : put(키, 값)
+        // 게임이름과 가격을 저장하는 해시맵을 생성
+        Map<String, Integer> product = new HashMap<>();
+
+        product.put("디아블로", 30000);
+        product.put("스타크래프트", 45000);
+        product.put("워크래프트", 25000);
+
+        // 값 조회 : get(키)
+        System.out.println(product.get("스타크래프트"));
+
+        // 모든 키 확인 : keySet
+        // keySet 메서드의 리턴값은 Set임
+        Set<String> keys = product.keySet();
+        for (String key : keys){
+            System.out.println(key);
+        }
+
+        // 모든 값 확인 : values
+        // values 메서드의 리턴값
+        Collection<Integer> vals = product.values();
+        for (Integer val : vals){
+            System.out.println(val);
+        }
+    }
 }

@@ -9,7 +9,7 @@ package qkfns;
 
 import java.util.ArrayList;
 
-public class Collection {
+public class Collections {
     public static void main(String[] args) {
         Object[] zoo = new Object[10];
 
