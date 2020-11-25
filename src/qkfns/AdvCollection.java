@@ -74,6 +74,14 @@ public class AdvCollection {
         // 1~45 사이 임의의 숫자 6개 만드는 코드 작성
         // 단, 중복은 허용하지 않는다.
 
+        Set<Integer> lottos = new HashSet<>();
+
+        for(int i = 0 ; lottos.size() != 6 ; i++) {
+            lottos.add((int)(Math.random() * 45)+1);
+            if(lottos.size() > 6 || lottos.size() < 0 )break;
+        }
+        System.out.println(lottos);
+
         // HashMap
         // 키와 값으로 저장하는 컬렉션 클래스
         // Map인터페이스를 구현한 컬렉션 클래스
