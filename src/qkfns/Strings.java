@@ -16,9 +16,14 @@ public class Strings {
         str1 = str1 + str2;
         str1 = str1 + "Wow~";   // 메모리 낭비가 심함.
         // => StringBuffer, StringBuilder 추천
-
+        str1 = "Hello ";
+        str2 = "World ";
+        String str3 = "Wow~";
         StringBuffer sb = new StringBuffer();
-        sb.append("Hello ").append("World ").append("Wow~");
+        sb.append("Hello ").append("World ").append("Wow~\n");
+        System.out.println(sb);
+
+        sb.append(str1).append(str2).append(str3);
         System.out.println(sb);
 
         // 문자열 간 비교
