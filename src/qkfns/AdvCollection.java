@@ -70,6 +70,10 @@ public class AdvCollection {
         // sha (secure hash algorithm)
         // 256 : 256bit 길이의 코드생성
 
+        // ex) 로또 6/45 프로그램 생성
+        // 1~45 사이 임의의 숫자 6개 만드는 코드 작성
+        // 단, 중복은 허용하지 않는다.
+
         // HashMap
         // 키와 값으로 저장하는 컬렉션 클래스
         // Map인터페이스를 구현한 컬렉션 클래스
