@@ -24,6 +24,8 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
         int deptId;
 
         Scanner sc = new Scanner(System.in);
+        // 모든 인사정보는 일단 문자형으로 받되
+        // 필요에 따라 적절한 형변환을 해서 변수에 저장
         System.out.print("사번을 입력하세요: ");
         empno = Integer.parseInt(sc.nextLine());
 
@@ -61,29 +63,41 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
 
     @Override
     public void readEmployee() {
-        String fmt = "사번: %s, 성: %s, 이메일: %s, 직책: %s, 상사번호: %d, 부서번호: %d\n";
+        //String fmt = "사번: %s, 성: %s, 이메일: %s, 직책: %s, 상사번호: %d, 부서번호: %d\n";
+        String fmt = "%8s %8s %8s %8s %8s %8s";
         // 동적 배열에 저장된 데이터들을 출력하기 위해
         // 각 요소를 순회할 수 있도록 Iterator 객체 선언
+        System.out.printf(fmt,"empno","fname","email","jobID","mgrID","deptID\n");
         Iterator<EmployeeVO> iter = empdata.iterator();
         while(iter.hasNext()){
             EmployeeVO empl = iter.next();
             System.out.printf(fmt,empl.getEmpno(),empl.getFname(),empl.getEmail(),empl.getJobId(),empl.getMgrId(),empl.getDeptId());
             }
+        System.out.println("");
 
     }
 
     @Override
     public void readOneEmployee() {
-        String fmt = "사번: %d, 성: %s, 이메일: %s, 직책: %s, 상사번호: %d, 부서번호: %d\n";
+        EmployeeVO emp = new EmployeeVO();
+        String fmt = "사원번호: %d, 성: %s, 이메일: %s, 직책: %s, 상사번호: %d, 부서번호: %d\n";
         Scanner sc = new Scanner(System.in);
-        System.out.println("조회할 사번을 입력해주세요 : ");
+        System.out.println("조회할 사원 번호를 입력해주세요 : ");
         int empno = sc.nextInt();
 
-        for(EmployeeVO empl : empdata){
+        /*for(EmployeeVO empl : empdata){
             if(empl.getEmpno() == empno){
                 System.out.printf(fmt,empl.getEmpno(),empl.getFname(), empl.getEmail(), empl.getJobId(),empl.getMgrId(),empl.getDeptId());
             }
+        }*/
+        for(EmployeeVO e : empdata){
+            // 입력한 사원번호와 순회해서 읽어온 사원정보의 사원번호와 비교
+            // 일치하면 다른 변수 안에 저장함.
+            if(e.getEmpno() == empno){
+                emp = e;
+            }
         }
+        System.out.printf(fmt,emp.getEmpno(),emp.getFname(), emp.getEmail(), emp.getJobId(),emp.getMgrId(),emp.getDeptId());
     }
 
     @Override
