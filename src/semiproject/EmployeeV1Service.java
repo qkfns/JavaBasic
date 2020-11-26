@@ -26,8 +26,8 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
         Scanner sc = new Scanner(System.in);
         System.out.print("사번을 입력하세요: ");
         empno = sc.nextInt();
+        sc.skip("\r\n|[\n\r]");
         System.out.print("성을 입력하세요: ");
-        fname = sc.nextLine();
         fname = sc.nextLine();
         System.out.print("이름을 입력하세요: ");
         lname = sc.nextLine();
@@ -47,6 +47,8 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
         mgrId = sc.nextInt();
         System.out.print("부서명을 입력하세요: ");
         deptId = sc.nextInt();
+
+
 
         EmployeeVO empl = new EmployeeVO(empno,fname,lname,email,phone,hdate,jobId,sal,comm,mgrId,deptId);
 
