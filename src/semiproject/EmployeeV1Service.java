@@ -25,28 +25,32 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("사번을 입력하세요: ");
-        empno = sc.nextInt();
-        sc.skip("\r\n|[\n\r]");
+        empno = Integer.parseInt(sc.nextLine());
+
         System.out.print("성을 입력하세요: ");
         fname = sc.nextLine();
+
         System.out.print("이름을 입력하세요: ");
         lname = sc.nextLine();
+
         System.out.print("이메일을 입력하세요: ");
         email = sc.nextLine();
+
         System.out.print("전화번호를 입력하세요: ");
         phone = sc.nextLine();
+
         System.out.print("입사일을 입력하세요: ");
         hdate = sc.nextLine();
         System.out.print("직책을 입력하세요: ");
         jobId = sc.nextLine();
         System.out.print("급여를 입력하세요: ");
-        sal = sc.nextInt();
+        sal = Integer.parseInt(sc.nextLine());
         System.out.print("수당을 입력하세요(소수): ");
-        comm = sc.nextDouble();
+        comm = Double.parseDouble(sc.nextLine());
         System.out.print("상사번호를 입력하세요: ");
-        mgrId = sc.nextInt();
-        System.out.print("부서명을 입력하세요: ");
-        deptId = sc.nextInt();
+        mgrId = Integer.parseInt(sc.nextLine());
+        System.out.print("부서번호를 입력하세요: ");
+        deptId = Integer.parseInt(sc.nextLine());
 
 
 
