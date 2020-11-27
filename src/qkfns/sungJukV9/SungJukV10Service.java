@@ -29,13 +29,11 @@ public class SungJukV10Service extends SungJukV9Service{
             loadSungJuk();
         } catch (IOException e) {
             System.out.println("성적 데이터 초기화중 오류발생");
-
+            e.printStackTrace();
         }
     }
 
-    //멤버변수 선언
-    //입력받은 모든 성적데이터를 저장하는 동적배열 변수 선언
-    List<SungJukVO> sjdata = new ArrayList<>();
+
 
     /**
      *  성적 처리 프로그램의 메뉴 출력 기능
@@ -101,14 +99,12 @@ public class SungJukV10Service extends SungJukV9Service{
     protected void loadSungJuk() throws IOException {
         fr = new FileReader(fpath);
         br = new BufferedReader(fr);
-
         while(br.ready()){
             String s[] = br.readLine().split(",");
 
             sj = new SungJukVO(s[0], Integer.parseInt(s[1]), Integer.parseInt(s[2]), Integer.parseInt(s[3]), Integer.parseInt(s[4]),
                     Double.parseDouble(s[5]), s[6].charAt(0));
             sjdata.add(sj);
-
         }
         br.close();
         fr.close();

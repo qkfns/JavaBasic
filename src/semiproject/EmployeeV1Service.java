@@ -11,6 +11,8 @@ import java.util.Scanner;
 
 public class EmployeeV1Service extends EmployeeV1GenericService {
     List<EmployeeVO> empdata = new ArrayList<>();
+    EmployeeVO empl = null;
+
     @Override
     public void newEmployee() {
         int empno;
@@ -58,7 +60,7 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
 
 
 
-        EmployeeVO empl = new EmployeeVO(empno,fname,lname,email,phone,hdate,jobId,sal,comm,mgrId,deptId);
+        empl = new EmployeeVO(empno,fname,lname,email,phone,hdate,jobId,sal,comm,mgrId,deptId);
 
         empdata.add(empl);
     }
