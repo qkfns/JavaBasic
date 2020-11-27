@@ -29,7 +29,7 @@ public class SungJukV10Service extends SungJukV9Service{
             loadSungJuk();
         } catch (IOException e) {
             System.out.println("성적 데이터 초기화중 오류발생");
-            e.printStackTrace();
+
         }
     }
 
@@ -73,7 +73,7 @@ public class SungJukV10Service extends SungJukV9Service{
             writeSungJuk(sj);
         } catch (IOException e) {
             System.out.println("파일쓰기 중 오류!");
-            e.printStackTrace();
+
         }
     }
 
