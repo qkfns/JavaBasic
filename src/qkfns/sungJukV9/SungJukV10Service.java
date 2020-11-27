@@ -2,6 +2,7 @@ package qkfns.sungJukV9;
 
 import qkfns.sungJukV6.SungJukVO;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -12,39 +13,74 @@ import java.util.Scanner;
  *   성적처리 추상클래스를 상속해서 만든 클래스
  */
 
-public class SungJukV9Service extends SungJukV9GenericService{
+public class SungJukV10Service extends SungJukV9Service{
+
+    private String fpath = "c:/Java/sungjuk.dat";
+    private FileReader fr = null;
+    private FileWriter fw = null;
+    private BufferedReader br = null;
+    private BufferedWriter bw = null;
+
     //멤버변수 선언
+    //입력받은 모든 성적데이터를 저장하는 동적배열 변수 선언
     List<SungJukVO> sjdata = new ArrayList<>();
-    // 입력받은 성적데이터를 저장하는 변수
-    SungJukVO sj = null;
+
+
+
+
+    /**
+     *  성적 처리 프로그램의 메뉴 출력 기능
+     */
+    public void displayMenu(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("-------------------\n")
+                .append("  성적 처리프로그램 v4   \n")
+                .append("-------------------\n")
+                .append(" 1. 성적 데이터 입력       \n")
+                .append(" 2. 성적 데이터 조회       \n")
+                .append(" 3. 성적 데이터 상세조회       \n")
+                .append(" 4. 성적 데이터 수정       \n" )
+                .append(" 5. 성적 데이터 삭제       \n")
+                .append(" 0. 프로그램 종료         \n")
+                .append("-------------------\n")
+                .append(" 원하시는 작업은 ? ");
+
+        System.out.print(sb);
+    }
+
+    /**
+     *  writeSungJuk
+     *  입력 받은 성적데이터를 sungjuk.dat에 저장
+     */
 
     @Override
-    /**
-     *  이름과 국/영/수 성적 데이터를 입력받아
-     *  총점, 평균, 학점을 계산한 뒤,
-     *  동적배열에 추가함
-     */
     public void newSungJuk() {
-        String name;
-        int kor;
-        int eng;
-        int mat;
-        Scanner sc = new Scanner(System.in);
-        System.out.print("이름을 입력하세요 : ");
-        name = sc.nextLine();
-        System.out.print("국어 점수를 입력하세요 : ");
-        kor = sc.nextInt();
-        System.out.print("영어 점수를 입력하세요 : ");
-        eng = sc.nextInt();
-        System.out.print("수학 점수를 입력하세요 : ");
-        mat = sc.nextInt();
-        // 입력받은 성적데이터를 동적배별에 저장
-         sj = new SungJukVO(name,kor,eng,mat,0,0,' ');
-        // 총점, 평균, 학점을 계산
-        computeSungJuk(sj);
-        // 처리된 성적데이터를 동적배열에 저장
-        sjdata.add(sj);
+
+        // 성적데이터 입력받은 후
+        // ArrayList 객체에 저장
+        super.newSungJuk();
+
+        try {
+            writeSungJuk(sj);
+        } catch (IOException e) {
+            System.out.println("파일쓰기 중 오류!");
+            e.printStackTrace();
+        }
     }
+
+    protected void writeSungJuk(SungJukVO sj) throws IOException {
+        String fmt = "%s,%s,%s,%s,%s,%.1f,%s";
+
+        fw = new FileWriter(fpath, true);
+        bw = new BufferedWriter(fw);
+        String data = String.format(fmt,sj.getName(),sj.getKor(),sj.getEng(),sj.getMat(),sj.getSum(),sj.getMean(),sj.getGrd());
+        bw.newLine();
+        bw.write(data);
+
+        bw.close();
+        fw.close();
+    }
+
     public void computeSungJuk(SungJukVO sj){
         sj.setSum ( sj.getKor() + sj.getEng() + sj.getMat());
         sj.setMean( (double)sj.getSum() / 3)  ;
@@ -99,27 +135,7 @@ public class SungJukV9Service extends SungJukV9GenericService{
 
 
 
-    /**
-     *  성적 처리 프로그램의 메뉴 출력 기능
-     */
-    public void displayMenu(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("-------------------\n")
-                .append("  성적 처리프로그램 v4   \n")
-                .append("-------------------\n")
-                .append(" 1. 성적 데이터 입력       \n")
-                .append(" 2. 성적 데이터 조회       \n")
-                .append(" 3. 성적 데이터 상세조회       \n")
-                .append(" 4. 성적 데이터 수정       \n" )
-                .append(" 5. 성적 데이터 삭제       \n")
-                .append(" 0. 프로그램 종료         \n")
-                .append("-------------------\n")
-                .append(" 원하시는 작업은 ? ");
 
-        System.out.print(sb);
-
-
-    }
 
 
 }
