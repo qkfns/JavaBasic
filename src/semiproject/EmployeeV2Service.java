@@ -15,6 +15,15 @@ public class EmployeeV2Service extends EmployeeV1Service {
     private FileReader fr = null;
     private BufferedReader br = null;
 
+    public EmployeeV2Service() {
+        try {
+            loadEmployee();
+        } catch (IOException e) {
+            System.out.println("초기화중 오류발생");
+        }
+    }
+
+
     public void displayMenu() {
         StringBuilder em = new StringBuilder();
         em.append("-------------------\n")

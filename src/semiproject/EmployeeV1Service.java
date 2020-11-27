@@ -68,7 +68,7 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
     @Override
     public void readEmployee() {
         //String fmt = "사번: %s, 성: %s, 이메일: %s, 직책: %s, 상사번호: %d, 부서번호: %d\n";
-        String fmt = "%8s %8s %8s %8s %8s %8s";
+        String fmt = "%8s %8s %8s %8s %8s %8s\n";
         // 동적 배열에 저장된 데이터들을 출력하기 위해
         // 각 요소를 순회할 수 있도록 Iterator 객체 선언
         System.out.printf(fmt,"empno","fname","email","jobID","mgrID","deptID\n");
