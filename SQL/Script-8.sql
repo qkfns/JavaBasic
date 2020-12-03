@@ -8,6 +8,7 @@ select scustid,scustname,scustgrd from sales_customers;
 -- 2) 고객테이블에서 모든 컬럼을 조회하세요
 
 select * from sales_customers ;
+select
 
 -- 3) 제품테이블에서 제조업체를 조회하세요
 

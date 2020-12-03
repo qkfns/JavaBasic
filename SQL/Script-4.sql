@@ -69,6 +69,12 @@ CREATE table WAREHOUSES(
 	wh_geo_location		varchar(255)
 );
 
+-- 웨어하우스 타입 설정 변경
+alter table WAREHOUSES 
+modify column location_id int;
+
+
+-- 기본키 제약조건 추가
 alter table CUSTOMERS 
 add constraint pk_custid primary key (customer_id);
 
@@ -81,18 +87,33 @@ add constraint pk_prodid primary key (product_id);
 alter table WAREHOUSES 
 add constraint pk_wareid primary key (warehouse_id);
 
+alter table ORDER_ITEMS 
+add constraint pk_ordit
+primary key (order_id, line_item_id);
+
+alter table PRODUCT_DESCRIPTIONS 
+add constraint pk_prddesc
+primary key (product_id, language_id);
+
+alter table INVENTORIES 
+add constraint pk_invent
+primary key (product_id, warehouse_id);
+
+
+-- 외래키 제약조건 추가
+
 alter table CUSTOMERS 
-add constraint fk_acmgrid
+add constraint fk_cust_emp                        -- 외래키 예약어 몇개 수정함 나중에 바꿔야하면 싹다 지우고 코드만 다시 적용시키면 됨
 foreign key (account_mgr_id)
 references EMPLOYEES (employee_id);
 
 alter table ORDERS 
-add constraint fK_orderid
+add constraint fK_ord_cust
 foreign key (customer_id)
 references CUSTOMERS (customer_id);
 
 alter table ORDERS
-add constraint fk_ordersales
+add constraint fk_ord_emp
 foreign key (sales_rep_id)
 references EMPLOYEES (employee_id);
 
@@ -121,3 +142,7 @@ add constraint fk_invtr_whs
 foreign key (warehouse_id)
 references WAREHOUSES (warehouse_id);
 
+alter table WAREHOUSES 
+add constraint fk_whs_loca
+foreign key (location_id)
+references LOCATIONS (location_id);
