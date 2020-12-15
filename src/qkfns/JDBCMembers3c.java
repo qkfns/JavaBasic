@@ -6,43 +6,38 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class JDBCBook3b {
+public class JDBCMembers3c {
     public static void main(String[] args) {
-        //도서제목으로 도서정보 조회
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        String sql = "select * from Books where bookname = ?";
+        String sql = "select * from BookMembers where name like ? ";
         String fmt = "%s, %s, %s, %s\n";
-
         StringBuilder sb = new StringBuilder();
 
-        // 조회할 도서제목을 입력받음
         Scanner sc = new Scanner(System.in);
-        System.out.println("도서제목은? ");
-        String name = sc.nextLine();
+        System.out.println("검색할 이름의 일부를 입력하세요");
+        String na = sc.nextLine();
 
-        //
         conn = JDBCUtil.makeConn();
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1,name);
+            pstmt.setString(1,'%'+na+'%');
             rs = pstmt.executeQuery();
-
-            while (rs.next()){
-                String bookid = rs.getString(1);
-                String bookname = rs.getString(2);
-                String bookmaker = rs.getString(3);
-                String price = rs.getString(4);
+            while(rs.next()){
+                String custid = rs.getString(1);
+                String name = rs.getString(2);
+                String address = rs.getString(3);
+                String phone = rs.getString(4);
                 String result = String.format(fmt,
-                        bookid,bookname,bookmaker,price);
+                        custid,name,address,phone);
                 sb.append(result);
             }
-        } catch (SQLException ex) {
-
+        } catch (SQLException se) {
+            System.out.println("JDBC문 오류");
         }
-        JDBCUtil.destroyConn(conn,pstmt,rs);
 
+        JDBCUtil.destroyConn(conn,pstmt,rs);
         System.out.println(sb.toString());
     }
 }
