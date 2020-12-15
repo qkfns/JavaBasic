@@ -32,30 +32,28 @@ public class JDBCMembers {
         String URL = "jdbc:mariadb://mariadb.c3zgrbtde6pb.ap-northeast-2.rds.amazonaws.com:3306/playground";
         String USR = "playground";
         String PWR = "playground2020";
-        try { Class.forName(DRV);
-        } catch (ClassNotFoundException cnf) {
-            System.out.println("드라이버를 확인하세요!");
-        }
 
         Connection conn = null;
+        Statement stmt = null;
+
         try {
+            Class.forName(DRV);
             conn = DriverManager.getConnection(URL,USR,PWR);
+            stmt = conn.createStatement();
+            int cnt = stmt.executeUpdate(sql);
+            if (cnt > 0)
+                System.out.println("데이터 추가 완료");
+
+        } catch (ClassNotFoundException cnf) {
+            System.out.println("드라이버를 확인하세요!");
         } catch (SQLException se) {
             System.out.println("url 아이디 비번을 확인하세요!!");
+        } finally {
+            if (stmt != null) {try { stmt.close(); } catch (SQLException se) { } }
+            if (conn != null) {try { conn.close(); } catch (SQLException se) { } }
         }
 
-        Statement stmt = null;
-        try {
-            stmt = conn.createStatement();
-            boolean isfail = stmt.execute(sql);
 
-
-        } catch (SQLException se) {
-            System.out.println("sql 실행 에러!");
-        }
-
-        if (stmt != null) { try { stmt.close(); } catch (SQLException se) { } }
-        if (conn != null) {try { conn.close(); } catch (SQLException se) { } }
 
     }
 }
