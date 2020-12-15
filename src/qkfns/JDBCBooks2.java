@@ -20,6 +20,11 @@ public class JDBCBooks2 {
     // 또한, 캐쉬기능을 지원하기 때문에 반복적으로 실행하는
     // 문장의 경우 1),2) 과정을 건너뛰고 3)으로 바로 갈 수 있음
 
+    // PreparedStatement의 In/OUT 매개변수
+    // sql 질의문 객체 생성시 사용하는 매개변수는 ?로 표기
+    // IN 매개변수는 질의문 생성시 입력값 대용으로 사용
+    // OUT 매개변수는 질의문을 실행하고 넘겨주는 결과값을 받을때 사용
+
 
     // JDC 드라이버 초기화 및 Connection 객체 생성
     public static Connection makeConn() {
