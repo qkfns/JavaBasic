@@ -1,9 +1,6 @@
 package qkfns;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class JDBCUtil {
 
@@ -25,10 +22,15 @@ public class JDBCUtil {
         return conn;
     }
 
+
     public static void destroyConn(Connection conn, PreparedStatement pstmt) {
 
         if (pstmt != null) { try { pstmt.close(); } catch (SQLException se) { } }
         if (conn != null) { try { conn.close(); } catch (SQLException se) { } }
     }
 
+    public static void destroyConn(Connection conn, PreparedStatement pstmt, ResultSet rs) {
+        if(rs != null)try{ rs.close(); } catch (SQLException ex) {}
+        destroyConn(conn,pstmt);
+    }
 }
