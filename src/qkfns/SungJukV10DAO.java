@@ -33,6 +33,8 @@ public class SungJukV10DAO {
         return  result;
     }
 
+    // 번호,이름,국어,영어,수학,등록일을 조회하고
+    // 그 결과들을 ArrayList에 담아서 넘김
     public static ArrayList<SungJukVO> selectSungJuk() {
         ArrayList<SungJukVO> sjs = new ArrayList<>();
         Connection conn = null;
@@ -59,5 +61,38 @@ public class SungJukV10DAO {
         SungJukJDBC.destroyConn(conn,pstmt,rs);
 
         return sjs;
+    }
+
+    // 성적번호로 성적데이터를 조회하고
+    // 그 결과를 SungJukVO에 담아서 넘김
+    public static SungJukVO selectOneSungJuk(String sjid) {
+        SungJukVO sj = null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        conn = SungJukJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(SungJukJDBC.selectOneSungJuk);
+            pstmt.setString(1,sjid);
+            rs = pstmt.executeQuery();
+            if (rs.next()){
+                sj = new SungJukVO(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getDouble(7),
+                        rs.getString(8).charAt(0),
+                        rs.getString(9));
+            }
+        } catch (SQLException se) {
+            System.out.println("selectOneSungJuk에서 오류발생");
+            se.printStackTrace();
+        }
+
+        SungJukJDBC.destroyConn(conn,pstmt,rs);
+        return sj;
     }
 }

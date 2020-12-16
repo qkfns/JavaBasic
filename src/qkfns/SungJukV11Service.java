@@ -85,4 +85,23 @@ public class SungJukV11Service  {
         }
         System.out.println(sb.toString());
     }
+
+    public void readOneSungJuk() {
+        String fmt = "번호 : %s,이름: %s, 국어: %d, 영어: %d, " +
+                "수학: %d, 총점: %d, 평균: %.1f,학점: %s, 등록일:%s\n";
+
+        //상세조회할 학생이름 입력 받음
+        Scanner sc = new Scanner(System.in);
+        System.out.println("조회할 성적번호는? ");
+        String sjid = sc.nextLine();
+
+        SungJukVO sj = SungJukV10DAO.selectOneSungJuk(sjid);
+
+        String result = String.format(fmt,sj.getSjid(),
+                sj.getName(), sj.getKor(),sj.getMat(),
+                sj.getEng(), sj.getSum(),sj.getMean(),
+                sj.getGrd(), sj.getRegdate());
+
+        System.out.println(result);
+    }
 }

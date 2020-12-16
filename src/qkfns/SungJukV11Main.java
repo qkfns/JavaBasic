@@ -28,7 +28,7 @@ public class SungJukV11Main {
             switch(menu) {
                 case "1" : sj.newSungJuk();break;
                 case "2" : sj.readSungJuk();break;
-                case "3" : break;
+                case "3" : sj.readOneSungJuk();break;
                 case "4" : break;
                 case "5" : break;
                 case "0" : System.exit(0);break;
