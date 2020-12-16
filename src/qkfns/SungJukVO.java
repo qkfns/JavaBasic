@@ -19,22 +19,6 @@ public class SungJukVO {
     private char grd;
     private String regdate;
 
-    public void setSjid(int sjid) {
-        this.sjid = sjid;
-    }
-
-    public void setRegdate(String regdate) {
-        this.regdate = regdate;
-    }
-
-    public int getSjid() {
-        return sjid;
-    }
-
-    public String getRegdate() {
-        return regdate;
-    }
-
 
     public SungJukVO(){
 
@@ -48,6 +32,19 @@ public class SungJukVO {
         this.mean = mean;
         this.grd = grd;
     } // 9버젼 이하용 생성자
+
+    public SungJukVO(int sjid, String name, int kor, int eng, int mat, int sum, double mean, char grd, String regdate) {
+        this.sjid = sjid;
+        this.name = name;
+        this.kor = kor;
+        this.eng = eng;
+        this.mat = mat;
+        this.sum = sum;
+        this.mean = mean;
+        this.grd = grd;
+        this.regdate = regdate;
+    }
+
 
     public void setName(String name) {
         this.name = name;
@@ -105,5 +102,21 @@ public class SungJukVO {
         return grd;
     }
 
+    public void setSjid(int sjid) {
+        this.sjid = sjid;
     }
+
+    public void setRegdate(String regdate) {
+        this.regdate = regdate;
+    }
+
+    public int getSjid() {
+        return sjid;
+    }
+
+    public String getRegdate() {
+        return regdate;
+    }
+
 }
+
