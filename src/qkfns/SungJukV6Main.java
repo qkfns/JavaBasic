@@ -1,4 +1,4 @@
-package qkfns.sungJukV6;
+package qkfns;
 
 public class SungJukV6Main {
     public static void main(String[] args) {

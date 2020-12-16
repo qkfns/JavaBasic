@@ -1,11 +1,11 @@
-package qkfns.sungJukV6;
+package qkfns;
 
 
 import java.util.Scanner;
 
 public class SungJukService {
     //성적을 키보드로 입력받는 메소드
-    public SungJukVO readSungJuk(){
+    public qkfns.sungJukV6.SungJukVO readSungJuk(){
         String name;
         int kor;
         int eng;
@@ -19,11 +19,11 @@ public class SungJukService {
         eng = sc.nextInt();
         System.out.print("수학 점수를 입력하세요 : ");
         mat = sc.nextInt();
-        return new SungJukVO(name,kor,eng,mat,0,0,' ');
+        return new qkfns.sungJukV6.SungJukVO(name,kor,eng,mat,0,0,' ');
     }
 
     //성적의 총점 학점 평균을 구하는 메소드
-    public void computeSungJuk(SungJukVO sj){
+    public void computeSungJuk(qkfns.sungJukV6.SungJukVO sj){
         sj.setSum ( sj.getKor() + sj.getEng() + sj.getMat());
         sj.setMean( (double)sj.getSum() / 3)  ;
         switch((int)(sj.getMean() / 10)){

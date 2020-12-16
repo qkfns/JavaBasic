@@ -2,10 +2,7 @@ package semiproject;
 
 //https://github.com/siestageek/datasets/blob/master/csv/EMPLOYEES.csv
 
-import qkfns.sungJukV6.SungJukVO;
-
 import java.io.*;
-import java.util.*;
 
 public class EmployeeV2Service extends EmployeeV1Service {
 

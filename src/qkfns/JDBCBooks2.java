@@ -24,6 +24,10 @@ public class JDBCBooks2 {
     // sql 질의문 객체 생성시 사용하는 매개변수는 ?로 표기
     // IN 매개변수는 질의문 생성시 입력값 대용으로 사용
     // OUT 매개변수는 질의문을 실행하고 넘겨주는 결과값을 받을때 사용
+    // java => ?, ?
+    // python => %s, %d
+    // c# => @name, @passwd
+    // oracle => :1, :2
 
 
     // JDC 드라이버 초기화 및 Connection 객체 생성

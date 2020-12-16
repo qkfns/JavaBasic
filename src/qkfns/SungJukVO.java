@@ -1,4 +1,4 @@
-package qkfns.sungJukV6;
+package qkfns;
 
 /**
  * 파일명 : SungJukV0
@@ -9,13 +9,32 @@ package qkfns.sungJukV6;
  * 관한 변수를 정의한 클래스
  */
 public class SungJukVO {
-    private  String name;
+    private int sjid;
+    private String name;
     private int kor;
     private int eng;
     private int mat;
     private int sum;
     private double mean;
     private char grd;
+    private String regdate;
+
+    public void setSjid(int sjid) {
+        this.sjid = sjid;
+    }
+
+    public void setRegdate(String regdate) {
+        this.regdate = regdate;
+    }
+
+    public int getSjid() {
+        return sjid;
+    }
+
+    public String getRegdate() {
+        return regdate;
+    }
+
 
     public SungJukVO(){
 
@@ -28,7 +47,7 @@ public class SungJukVO {
         this.sum = sum;
         this.mean = mean;
         this.grd = grd;
-    }
+    } // 9버젼 이하용 생성자
 
     public void setName(String name) {
         this.name = name;
@@ -84,5 +103,7 @@ public class SungJukVO {
 
     public char getGrd() {
         return grd;
+    }
+
     }
 }

@@ -2,8 +2,6 @@ package semiproject;
 
 //https://github.com/siestageek/datasets/blob/master/csv/EMPLOYEES.csv
 
-import qkfns.sungJukV6.SungJukVO;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

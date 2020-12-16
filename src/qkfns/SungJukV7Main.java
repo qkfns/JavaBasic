@@ -1,7 +1,5 @@
 package qkfns;
 
-import qkfns.sungJukV6.SungJukVO;
-
 import java.util.Scanner;
 
 /**

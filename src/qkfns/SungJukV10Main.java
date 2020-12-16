@@ -1,4 +1,4 @@
-package qkfns.sungJukV9;
+package qkfns;
 
 import java.util.Scanner;
 
