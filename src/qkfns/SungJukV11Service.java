@@ -3,11 +3,6 @@ package qkfns;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *   SungJukV9Service
- *   성적처리 추상클래스를 상속해서 만든 클래스
- */
-
 public class SungJukV11Service  {
 
     public SungJukV11Service() {}
