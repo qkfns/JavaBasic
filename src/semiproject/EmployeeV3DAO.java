@@ -27,9 +27,10 @@ public class EmployeeV3DAO {
             pstmt.setInt(10,emp.getMgrId());
             pstmt.setInt(11,emp.getDeptId());
             int cnt = pstmt.executeUpdate();
-            if (cnt>0) result = "성적데이터 저장완료";
-        } catch (SQLException throwables) {
+            if (cnt>0) result = "사원정보 저장완료";
+        } catch (SQLException se) {
             System.out.println("insertEMP 작동중 오류 발생");
+            se.printStackTrace();
         }
         EmployeeJDBC.destroyConn(conn,pstmt);
         return result;

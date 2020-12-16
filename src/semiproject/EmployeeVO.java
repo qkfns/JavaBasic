@@ -16,6 +16,11 @@ public class EmployeeVO {
     public EmployeeVO() {
     }
 
+    public EmployeeVO(int empno, String fname, String lname) {
+        this.empno = empno;
+        this.fname = fname;
+        this.lname = lname;
+    }
 
     public EmployeeVO(int empno, String fname, String lname, String email, String phone, String hdate, String jobId, int sal, double comm, int mgrId, int deptId) {
         this.empno = empno;
