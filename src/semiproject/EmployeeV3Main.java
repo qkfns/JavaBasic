@@ -19,7 +19,7 @@ public class EmployeeV3Main {
             switch (menu) {
                 case 1: emp.newEmployees();break;
                 case 2: emp.readEmployee();break;
-                case 3: break;
+                case 3: emp.readOneEmployee();break;
                 case 4: break;
                 case 5: break;
                 case 0: System.exit(0); break;

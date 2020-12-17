@@ -88,4 +88,24 @@ public class EmployeeV3Service {
 
     }
 
+    public void readOneEmployee() {
+
+        String fmt = "%10s %10s %10s %10s %10s " +
+                "%10s %10s %10s %10s %10s %10s \n";
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("조회할 사원 번호를 입력해주세요 : ");
+        String empid = sc.nextLine();
+
+        EmployeeVO emp = EmployeeV3DAO.selectOneEmp(empid);
+
+        String result = String.format(fmt, emp.getEmpno(),
+                emp.getFname(),emp.getLname(),emp.getEmail(),
+                emp.getPhone(),emp.getHdate(),emp.getJobId(),
+                emp.getSal(),emp.getComm(),emp.getMgrId(),
+                emp.getDeptId());
+
+        System.out.println(result);
+    }
+
 }

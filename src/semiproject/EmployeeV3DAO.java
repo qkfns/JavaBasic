@@ -64,4 +64,35 @@ public class EmployeeV3DAO {
 
         return emps;
     }
+
+    // 입력받은 사원번호로 employees 테이블을 조회하고
+    // 그 결과글 EmployeeVO로 구성한 후 EmployeeV3Service로 넘김
+    public static EmployeeVO selectOneEmp(String empid) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        EmployeeVO emp = null;
+
+        conn = EmployeeJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(EmployeeJDBC.selectOneEmp);
+            pstmt.setString(1,empid);
+            rs = pstmt.executeQuery();
+            if (rs.next()){
+                emp = new EmployeeVO(
+                        rs.getInt(1), rs.getString(2),
+                        rs.getString(3), rs.getString(4),
+                        rs.getString(5), rs.getString(6),
+                        rs.getString(7), rs.getInt(8),
+                        rs.getDouble(9), rs.getInt(10),
+                        rs.getInt(11));
+            }
+        } catch (SQLException se) {
+            System.out.println("selectOneEmp에서 오류 발생!!");
+            se.printStackTrace();
+        }
+        EmployeeJDBC.destroyConn(conn,pstmt,rs);
+
+        return emp;
+    }
 }
