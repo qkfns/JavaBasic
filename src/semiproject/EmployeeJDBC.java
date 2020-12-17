@@ -13,4 +13,6 @@ public class EmployeeJDBC extends JDBCUtil {
             ",job_id,manager_id,department_id from EMPLOYEES";
 
     public static String selectOneEmp = "select * from EMPLOYEES where employee_id = ?";
+
+
 }

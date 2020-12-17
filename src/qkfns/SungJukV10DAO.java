@@ -95,4 +95,30 @@ public class SungJukV10DAO {
         SungJukJDBC.destroyConn(conn,pstmt,rs);
         return sj;
     }
+
+    public static String updateSungJuk(SungJukVO sj) {
+        return null;
+    }
+
+    // 삭제할 성적번호를 매개변수로 넘겨주면
+    // sungjuk테이블에서 해당 데이터를 삭제함
+    public static String deleteSungJuk(int sjid) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        String result = "성적데이터 삭제 처리중 ....?";
+
+        conn = SungJukJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(SungJukJDBC.deleteSungJuk);
+            pstmt.setInt(1,sjid);
+
+            int cnt = pstmt.executeUpdate();
+            if (cnt>0) result = "성적데이터 삭제완료!!";
+        } catch (SQLException se) {
+            System.out.println("delectSungJuk에서 오류!!");
+            se.printStackTrace();
+        }
+        SungJukJDBC.destroyConn(conn,pstmt);
+        return result;
+    }
 }

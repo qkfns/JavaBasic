@@ -27,7 +27,6 @@ public class SungJukV11Service  {
         System.out.print(sb);
     }
 
-
     public void newSungJuk() {
         String name;
         int kor;
@@ -53,6 +52,7 @@ public class SungJukV11Service  {
         String result = SungJukV10DAO.insertSungJuk(sj);
         System.out.println(result);
     }
+
     public void computeSungJuk(SungJukVO sj){
         sj.setSum ( sj.getKor() + sj.getEng() + sj.getMat());
         sj.setMean( (double)sj.getSum() / 3)  ;
@@ -99,4 +99,36 @@ public class SungJukV11Service  {
 
         System.out.println(result);
     }
+
+    public void modifySungJuk() {
+        Scanner sc = new Scanner(System.in);
+        SungJukVO sj = new SungJukVO();
+
+
+        System.out.print("수정할 성적번호는?");
+        sj.setSjid(sc.nextInt());
+        System.out.print("수정할 국어점수는?");
+        sj.setKor(sc.nextInt());
+        System.out.print("수정할 영어점수는?");
+        sj.setEng(sc.nextInt());
+        System.out.print("수정할 수학점수는?");
+        sj.setMat(sc.nextInt());
+
+        computeSungJuk(sj);
+
+        String result = SungJukV10DAO.updateSungJuk(sj);
+        System.out.println(result);
+    }
+
+    public void removeSungJuk(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("삭제할 성적번호는? ");
+        int sjid = sc.nextInt();
+
+        String result = SungJukV10DAO.deleteSungJuk(sjid);
+        System.out.println(result);
+
+    }
+
 }

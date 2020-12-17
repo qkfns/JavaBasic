@@ -29,8 +29,8 @@ public class SungJukV11Main {
                 case "1" : sj.newSungJuk();break;
                 case "2" : sj.readSungJuk();break;
                 case "3" : sj.readOneSungJuk();break;
-                case "4" : break;
-                case "5" : break;
+                case "4" : sj.modifySungJuk();break;
+                case "5" : sj.removeSungJuk();break;
                 case "0" : System.exit(0);break;
                 default:
                     System.out.println("잘못 입력하셨습니다");
