@@ -96,6 +96,7 @@ public class EmployeeV3DAO {
         return emp;
     }
 
+    // 입력받은 사원 번호를 이용해서 employees 테이블을 삭제함
     public static String deleteEmp(int empid) {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -109,6 +110,34 @@ public class EmployeeV3DAO {
             if (cnt>0) result = "사원정보 삭제완료!!";
         } catch (SQLException se) {
             System.out.println("deleteEmp 작동중 오류발생");
+            se.printStackTrace();
+        }
+        EmployeeJDBC.destroyConn(conn,pstmt);
+
+        return result;
+    }
+
+    // 수정할 사원 정보를 넘겨받아 employees 테이블을 수정함
+    public static String updateEmp(EmployeeVO emp) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        String result = "사원정보 수정중 ....?!?!";
+
+        conn = EmployeeJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(EmployeeJDBC.updateEmp);
+            pstmt.setString(1,emp.getFname());
+            pstmt.setString(2,emp.getLname());
+            pstmt.setString(3,emp.getEmail());
+            pstmt.setString(4,emp.getPhone());
+            pstmt.setString(5,emp.getHdate());
+            pstmt.setInt(6,emp.getEmpno());
+
+            int cnt = pstmt.executeUpdate();
+            if (cnt >0) result= "사원정보 수정완료!!";
+
+        } catch (SQLException se) {
+            System.out.println("updateEmp 실행중 오류");
             se.printStackTrace();
         }
         EmployeeJDBC.destroyConn(conn,pstmt);

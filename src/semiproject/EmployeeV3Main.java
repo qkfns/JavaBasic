@@ -20,7 +20,7 @@ public class EmployeeV3Main {
                 case 1: emp.newEmployees();break;
                 case 2: emp.readEmployee();break;
                 case 3: emp.readOneEmployee();break;
-                case 4: break;
+                case 4: emp.modifyEmployee(); break;
                 case 5: emp.removeEmployee();break;
                 case 0: System.exit(0); break;
                 default: System.out.println("잘못 입력하셨습니다.");

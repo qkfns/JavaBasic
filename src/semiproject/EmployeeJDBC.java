@@ -15,8 +15,7 @@ public class EmployeeJDBC extends JDBCUtil {
     public static String selectOneEmp = "select * from EMPLOYEES where employee_id = ?";
 
     public static String updateEmp =
-            " update EMPLOYEES sef first_name = ? ,last_name = ?, email =?, " +
-                    " phone_number = ?, hire_date = ? where employee_id =? ";
+            " update EMPLOYEES set first_name = ?, last_name = ?, email = ?, phone_number = ?, hire_date = ? where employee_id = ? ";
 
     public static String deleteEmp =
             "delete from EMPLOYEES where employee_id = ?";

@@ -1,5 +1,8 @@
 package semiproject;
 
+import qkfns.SungJukV10DAO;
+import qkfns.SungJukVO;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -116,6 +119,29 @@ public class EmployeeV3Service {
         int empid = sc.nextInt();
 
         String result = EmployeeV3DAO.deleteEmp(empid);
+        System.out.println(result);
+    }
+
+    public void modifyEmployee(){
+        Scanner sc = new Scanner(System.in);
+        EmployeeVO ev = new EmployeeVO();
+
+
+        System.out.print("수정할 사원번호는?");
+        ev.setEmpno(Integer.parseInt(sc.nextLine()));
+        System.out.print("수정할 사원의 성은?");
+        ev.setFname(sc.nextLine());
+        System.out.print("수정할 사원의 이름은?");
+        ev.setLname(sc.nextLine());
+        System.out.print("수정할 사원의 이메일은?");
+        ev.setEmail(sc.nextLine());
+        System.out.print("수정할 사원의 전화번호는?");
+        ev.setPhone(sc.nextLine());
+        System.out.print("수정할 입사일은?");
+        ev.setHdate(sc.nextLine());
+
+
+        String result = EmployeeV3DAO.updateEmp(ev);
         System.out.println(result);
     }
 }
