@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+// Data Acess Object의 줄임말
 public class SungJukV10DAO {
 
     // 넘겨받은 성적데이터를 sungjuk테이블에 저장
@@ -97,7 +98,29 @@ public class SungJukV10DAO {
     }
 
     public static String updateSungJuk(SungJukVO sj) {
-        return null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        String result = "성적데이터 수정처리중...?!";
+
+        conn = SungJukJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(SungJukJDBC.updateSungJuk);
+            pstmt.setInt(1,sj.getKor());
+            pstmt.setInt(2,sj.getEng());
+            pstmt.setInt(3,sj.getMat());
+            pstmt.setInt(4,sj.getSum());
+            pstmt.setDouble(5,sj.getMean());
+            pstmt.setString(6,sj.getGrd()+"");
+            pstmt.setInt(7,sj.getSjid());
+
+            int cnt = pstmt.executeUpdate();
+            if(cnt>0) result = "성적데이터 수정완료!!";
+        } catch (SQLException se) {
+            System.out.println("updateSungJuk에서 오류발생!!");
+            se.printStackTrace();
+        }
+        SungJukJDBC.destroyConn(conn,pstmt);
+        return result;
     }
 
     // 삭제할 성적번호를 매개변수로 넘겨주면

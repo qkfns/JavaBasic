@@ -13,8 +13,8 @@ public class SungJukJDBC extends JDBCUtil{
             "select * from sungjuk where sjid = ?";
 
     public static String updateSungJuk = "update sungjuk" +
-            "set kor =?, eng = ?, mat = ?, tot = ?, mean = ?, grd = ?" +
-            " where sjid = ?";
+            " set kor = ?, eng = ?, mat = ?, tot = ?, mean = ?, grd = ?" +
+            " regdate = sysdate() where sjid = ?";
 
     public static String deleteSungJuk = "delete from sungjuk where sjid = ?";
 
