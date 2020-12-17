@@ -95,4 +95,24 @@ public class EmployeeV3DAO {
 
         return emp;
     }
+
+    public static String deleteEmp(int empid) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        String result = "사원정보 삭제처리중....?!?";
+
+        conn = EmployeeJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(EmployeeJDBC.deleteEmp);
+            pstmt.setInt(1,empid);
+            int cnt = pstmt.executeUpdate();
+            if (cnt>0) result = "사원정보 삭제완료!!";
+        } catch (SQLException se) {
+            System.out.println("deleteEmp 작동중 오류발생");
+            se.printStackTrace();
+        }
+        EmployeeJDBC.destroyConn(conn,pstmt);
+
+        return result;
+    }
 }

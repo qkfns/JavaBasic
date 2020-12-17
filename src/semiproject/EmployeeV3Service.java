@@ -69,6 +69,7 @@ public class EmployeeV3Service {
         String result = EmployeeV3DAO.insertEmp(emp);
         System.out.println(result);
     }
+
     public void readEmployee() {
         StringBuilder sb = new StringBuilder();
         String fmt = "%10s %10s %10s %10s %10s %10s\n";
@@ -108,4 +109,13 @@ public class EmployeeV3Service {
         System.out.println(result);
     }
 
+    public void removeEmployee() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("삭제할 사원번호는?");
+        int empid = sc.nextInt();
+
+        String result = EmployeeV3DAO.deleteEmp(empid);
+        System.out.println(result);
+    }
 }

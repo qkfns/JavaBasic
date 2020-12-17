@@ -102,14 +102,20 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
         System.out.printf(fmt,emp.getEmpno(),emp.getFname(), emp.getEmail(), emp.getJobId(),emp.getMgrId(),emp.getDeptId());
     }
 
-    @Override
+
     public void removeEmployee() {
-        super.removeEmployee();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("삭제할 사원번호는?");
+        int empid = sc.nextInt();
+
+        String result = EmployeeV3DAO.deleteEmp(empid);
+        System.out.println(result);
     }
 
-    @Override
+
     public void modifyEmployee() {
-        super.modifyEmployee();
+
     }
 
     public void displayMenu() {

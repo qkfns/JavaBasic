@@ -19,22 +19,12 @@ public class EmployeeV2Main {
                 continue;
             }
             switch (menu) {
-                case 1:
-                    eplV2.newEmployee();
-                    break;
-                case 2:
-                    eplV2.readEmployee();
-                    break;
-                case 3:
-                    eplV2.readOneEmployee();
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 0:
-                    System.exit(0);
-                    break;
+                case 1: eplV2.newEmployee(); break;
+                case 2: eplV2.readEmployee(); break;
+                case 3: eplV2.readOneEmployee(); break;
+                case 4: break;
+                case 5: break;
+                case 0: System.exit(0); break;
                 default:
                     System.out.println("잘못 입력하셨습니다.");
             }
