@@ -13,4 +13,5 @@ public class SamKwangJDBC extends JDBCUtil {
             "join 직원 using(인사번호);";
 
 
+    public static String readOneCODP = "select * from CODP where 주문번호 = ?";
 }

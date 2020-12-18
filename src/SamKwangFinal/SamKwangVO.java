@@ -32,7 +32,7 @@ public class SamKwangVO {
         this.단가 = 단가;
     }
 
-    public SamKwangVO(int 고객번호, String 고객이름, String 주소, String 시도, String 우편번호, String 전화번호, int 주문번호, String 주문일, String 납기일, int 인사번호, int 제품번호, int 수량, String 제품이름, String 제품분류, int 단가, int 재고량) {
+    public SamKwangVO(int 제품번호, int 주문번호, int 고객번호, String 고객이름, String 주소, String 시도, String 우편번호, String 전화번호, String 주문일, String 납기일, int 인사번호,  int 수량, String 제품이름, String 제품분류, int 단가, int 재고량) {
         this(고객번호,고객이름,주문번호,주문일,제품번호,수량,제품이름,단가);
         // 이미 정의된 생성자중 매개변수 순서와 유형이 동일한 생성자 호출
 

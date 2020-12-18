@@ -4,6 +4,7 @@ import semiproject.EmployeeV3DAO;
 import semiproject.EmployeeVO;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class SamKwangService {
 
@@ -50,6 +51,32 @@ public class SamKwangService {
 
 
     public void readOneCODP() {
+        StringBuilder sb = new StringBuilder();
+        String fmt = "%10s %10s %10s %10s %10s %10s %10s %10s \n" +
+                "%10s %10s %10s %10s %10s %10s %10s %10s \n" +
+                "--------------------------------------\n";
+        String result = "";
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("조회할 주문번호는? ");
+        int 주문번호 = sc.nextInt();
+
+        ArrayList<SamKwangVO> codps = SamKwangDAO.selectOneCODP(주문번호);
+
+        for (SamKwangVO codp : codps){
+            result = String.format(fmt, codp.get제품번호(),
+                    codp.get주문번호(),codp.get고객번호(),
+                    codp.get고객이름(),codp.get주소(),
+                    codp.get시도(),codp.get우편번호(),
+                    codp.get전화번호(),codp.get주문일(),
+                    codp.get납기일(),codp.get인사번호(),
+                    codp.get수량(),codp.get제품이름(),
+                    codp.get제품분류(),codp.get단가(),
+                    codp.get재고량());
+            sb.append(result);
+        }
+
+        System.out.println(sb.toString());
     }
 
     public void readSOE() {
