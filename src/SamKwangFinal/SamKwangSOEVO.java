@@ -28,13 +28,18 @@ public class SamKwangSOEVO {
     }
 
     public SamKwangSOEVO(int 인사번호, int 주문번호, int 운송ID, String 운송이름, String 담당자전화번호, String 주문일, String 납기일, int 고객번호, String 주민등록번호, String 성명, String 소속부서, String 직책, String 입사일) {
-        this(인사번호,주문번호,운송ID,운송이름,주문일,직책);
+        this.인사번호 = 인사번호;
+        this.주문번호 = 주문번호;
+        this.운송ID = 운송ID;
+        this.운송이름 = 운송이름;
         this.담당자전화번호 = 담당자전화번호;
+        this.주문일 = 주문일;
         this.납기일 = 납기일;
         this.고객번호 = 고객번호;
         this.주민등록번호 = 주민등록번호;
         this.성명 = 성명;
         this.소속부서 = 소속부서;
+        this.직책 = 직책;
         this.입사일 = 입사일;
     }
 

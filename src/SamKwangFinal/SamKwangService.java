@@ -3,6 +3,7 @@ package SamKwangFinal;
 import semiproject.EmployeeV3DAO;
 import semiproject.EmployeeVO;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -49,7 +50,6 @@ public class SamKwangService {
 
     }
 
-
     public void readOneCODP() {
         StringBuilder sb = new StringBuilder();
         String fmt = "%10s %10s %10s %10s %10s %10s %10s %10s \n" +
@@ -80,9 +80,43 @@ public class SamKwangService {
     }
 
     public void readSOE() {
+        String fmt = "%10s %10s %10s %10s %10s %10s \n";
+        StringBuilder sb = new StringBuilder();
+        String result = "";
+        ArrayList<SamKwangSOEVO> soes = SamKwangDAO.selectSOE();
+
+        for (SamKwangSOEVO soe : soes ) {
+            result = String.format(fmt, soe.get인사번호(), soe.get주문번호(),
+                    soe.get운송ID(), soe.get운송이름(), soe.get주문일().substring(0,10),
+                    soe.get직책());
+            sb.append(result);
+        }
+
+        System.out.println(sb.toString());
     }
 
     public void readOneSOE() {
+        String fmt = "%10s %10s %10s %10s %10s %10s \n" +
+                "%10s %10s %10s %10s %10s %10s %10s \n";
+        String result = "";
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("조회할 운송ID는? ");
+        int 운송ID = sc.nextInt();
+
+        SamKwangSOEVO soe = SamKwangDAO.selectOneSOE(운송ID);
+
+
+        result = String.format(fmt, soe.get인사번호(),
+                soe.get주문번호(), soe.get운송ID(),
+                soe.get운송이름(), soe.get담당자전화번호(),
+                soe.get주문일(), soe.get납기일(),
+                soe.get고객번호(),soe.get주민등록번호(),
+                soe.get성명(), soe.get소속부서(),
+                soe.get직책(), soe.get입사일());
+
+
+        System.out.println(result);
     }
 }
 

@@ -8,8 +8,9 @@ import java.util.ArrayList;
 
 public class SamKwangDAO {
 
+
     // CODP 테이블에서 기본정보만 조회한 후 넘김
-   public static ArrayList<SamKwangVO> selectCODP() {
+    public static ArrayList<SamKwangVO> selectCODP() {
        ArrayList<SamKwangVO> codps = new ArrayList<>();
        Connection conn = null;
        PreparedStatement pstmt = null;
@@ -71,4 +72,62 @@ public class SamKwangDAO {
         SamKwangJDBC.destroyConn(conn,pstmt,rs);
         return codps;
     }
+
+    // SOE 테이블에서 기본정보만 조회한 후 넘김
+    public static ArrayList<SamKwangSOEVO> selectSOE() {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        ArrayList<SamKwangSOEVO> soes = new ArrayList<>();
+
+        conn = SamKwangJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(SamKwangJDBC.readSOE);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                SamKwangSOEVO soe = new SamKwangSOEVO(
+                        rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6));
+                soes.add(soe);
+            }
+        } catch (SQLException se) {
+            System.out.println("selectSOE 작업중 오류 발생");
+            se.printStackTrace();
+        }
+
+        SamKwangJDBC.destroyConn(conn,pstmt,rs);
+        return soes;
+    }
+
+    public static SamKwangSOEVO selectOneSOE(int 운송ID) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        SamKwangSOEVO soe = null;
+
+        conn = SamKwangJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(SamKwangJDBC.readOneSOE);
+            pstmt.setInt(1,운송ID);
+            rs = pstmt.executeQuery();
+            if (rs.next()){
+                soe = new SamKwangSOEVO(rs.getInt(1),
+                        rs.getInt(2),rs.getInt(3),
+                        rs.getString(4), rs.getString(5),
+                        rs.getString(6), rs.getString(7),
+                        rs.getInt(8), rs.getString(9),
+                        rs.getString(10), rs.getString(11),
+                        rs.getString(12), rs.getString(13));
+            }
+        } catch (SQLException se) {
+            System.out.println("selectOneSOE에서 오류발생");
+            se.printStackTrace();
+        }
+        return soe;
+    }
+
 }
